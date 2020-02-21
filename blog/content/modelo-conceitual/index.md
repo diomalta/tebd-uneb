@@ -36,9 +36,8 @@ Ações feitas entre as entidades fica mais facíl a visualização com isso sab
 * Revisa
 * Escreve
 
-### Ferramenta
+### Ferramenta utilizada
 
-Utilizamos o BRModelo para gerar nosso modelo conceitual, criado por <strong>Carlos Henrique Candido
-, Ronaldo dos Santos Mello</strong>.
+Utilizamos o BRModelo para gerar nosso modelo conceitual, criado por <strong>Carlos Henrique Candido e Ronaldo dos Santos Mello</strong>.
 
 Publicação do [BRModelo](http://www.sis4.com/brModelo/brModelo.pdf)
