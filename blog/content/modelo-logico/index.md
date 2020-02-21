@@ -1,7 +1,7 @@
 ---
 title: "Modelo Lógico"
 description: "Modelagem conceitual trata de uma abstração semântica de softwares, descrevendo modelos de estrutura de entidades…"
-date: "2020-02-21T00:00:00.000Z"
+date: "2020-02-21T00:00:01.000Z"
 categories: 
   - Modelo
   - Conceito
