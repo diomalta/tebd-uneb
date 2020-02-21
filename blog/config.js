@@ -9,7 +9,7 @@ module.exports = {
   // a longer bio showing on the landing page of the blog
   bio: ``,
   author: 'tebd',
-  githubUrl: 'https://github.com/diomalta/tebd-uneb/tebd-blog',
+  githubUrl: 'https://github.com/diomalta/tebd-uneb/tebd',
   // replace this by the url where your website will be published
   siteUrl: 'https://tebd-uneb.netlify.com/',
   social: {
