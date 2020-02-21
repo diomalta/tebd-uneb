@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="tebd-uneb:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/tebd_uneb_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="tebd-uneb/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="tebd-uneb" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
