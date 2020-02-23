@@ -4,19 +4,35 @@
     "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
+    <!-- Database connection settings -->
     <property name="connection.url">jdbc:mysql://localhost:3306/congresso</property>
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-    <mapping class="model.AddressEntity"/>
-    <mapping class="model.ArticlesEntity"/>
-    <mapping class="model.AuthorsEntity"/>
-    <mapping class="model.CardsEntity"/>
-    <mapping class="model.EvaluationsEntity"/>
-    <mapping class="model.ParticipantsEntity"/>
-    <mapping class="model.RevisorsEntity"/>
-    <!-- <property name="connection.username"/> -->
-    <!-- <property name="connection.password"/> -->
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password"/>
 
-    <!-- DB schema will be updated if needed -->
-    <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
+    <!-- SQL dialect -->
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+    <!-- Specify session context -->
+    <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
+
+    <!-- Echo all executed SQL to stdout -->
+    <property name="show_sql">true</property>
+
+    <!-- Mapping Models - DAO -->
+    <mapping class="model.AddressEntity"/>
+    <mapping resource="map/address.hbm.xml"/>
+
+    <!--
+        <mapping class="model.ArticlesEntity"/>
+        <mapping class="model.AuthorsEntity"/>
+        <mapping class="model.CardsEntity"/>
+        <mapping class="model.EvaluationsEntity"/>
+        <mapping class="model.ParticipantsEntity"/>
+        <mapping class="model.RevisorsEntity"/>
+    -->
+
+   <!-- DB schema will be updated if needed -->
+    <!-- <property name="hibernate.hbm2ddl.auto">update</property>-->
   </session-factory>
 </hibernate-configuration>
