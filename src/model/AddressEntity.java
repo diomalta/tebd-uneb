@@ -8,36 +8,29 @@ import java.util.Objects;
 public class AddressEntity {
     private String cep;
     private String address;
-    private String id;
+    private int id;
+
+    @Id
+    @Column(name = "id", nullable = false, insertable = true, updatable = true)
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) { this.id = id; }
 
     @Basic
-    @Column(name = "CEP", nullable = true, length = 10)
+    @Column(name = "cep", nullable = false, insertable = true, updatable = true, length = 10)
     public String getCep() {
         return cep;
     }
-
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
+    public void setCep(String cep) { this.cep = cep; }
 
     @Basic
-    @Column(name = "address", nullable = true, length = -1)
+    @Column(name = "address",  nullable = false, insertable = true, updatable = true, length = 50)
     public String getAddress() {
         return address;
     }
-
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    @Id
-    @Column(name = "id", nullable = false, length = 10)
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     @Override
