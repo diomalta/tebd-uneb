@@ -19,6 +19,9 @@
     <!-- Echo all executed SQL to stdout -->
     <property name="show_sql">true</property>
 
+    <!-- DB schema will be updated if needed -->
+    <property name="hibernate.hbm2ddl.auto">update</property>
+
     <!-- Mapping Models - DAO -->
     <mapping class="model.AddressEntity"/>
     <mapping resource="map/address.hbm.xml"/>
@@ -31,8 +34,5 @@
         <mapping class="model.ParticipantsEntity"/>
         <mapping class="model.RevisorsEntity"/>
     -->
-
-   <!-- DB schema will be updated if needed -->
-    <!-- <property name="hibernate.hbm2ddl.auto">update</property>-->
   </session-factory>
 </hibernate-configuration>
