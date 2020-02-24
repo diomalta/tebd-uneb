@@ -32,7 +32,6 @@
     <!--
         <mapping class="model.ArticlesEntity"/>
         <mapping class="model.AuthorsEntity"/>
-        <mapping class="model.CardsEntity"/>
         <mapping class="model.EvaluationsEntity"/>
         <mapping class="model.ParticipantsEntity"/>
         <mapping class="model.RevisorsEntity"/>
