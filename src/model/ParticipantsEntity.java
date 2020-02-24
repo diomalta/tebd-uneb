@@ -6,19 +6,27 @@ import java.util.Objects;
 @Entity
 @Table(name = "participants", schema = "congresso", catalog = "")
 public class ParticipantsEntity {
-    private String telefone;
+    private String telephone;
     private String name;
     private String email;
     private String id;
 
-    @Basic
-    @Column(name = "telefone", nullable = true, length = 10)
-    public String getTelefone() {
-        return telefone;
+    @Id
+    @Column(name = "id", nullable = false, length = 10)
+    public String getId() {
+        return id;
+    }
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    @Basic
+    @Column(name = "telephone", nullable = true, length = 10)
+    public String getTelephone() {
+        return telephone;
+    }
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 
     @Basic
@@ -26,7 +34,6 @@ public class ParticipantsEntity {
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -36,19 +43,8 @@ public class ParticipantsEntity {
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    @Id
-    @Column(name = "id", nullable = false, length = 10)
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     @Override
@@ -56,7 +52,7 @@ public class ParticipantsEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ParticipantsEntity that = (ParticipantsEntity) o;
-        return Objects.equals(telefone, that.telefone) &&
+        return Objects.equals(telephone, that.telephone) &&
                 Objects.equals(name, that.name) &&
                 Objects.equals(email, that.email) &&
                 Objects.equals(id, that.id);
@@ -64,6 +60,6 @@ public class ParticipantsEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(telefone, name, email, id);
+        return Objects.hash(telephone, name, email, id);
     }
 }
