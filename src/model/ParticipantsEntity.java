@@ -12,6 +12,7 @@ public class ParticipantsEntity {
     private String name;
     private String email;
     private AddressEntity address;
+    private AddressEntity job;
     private CardsEntity card;
 
     @OneToMany(fetch = FetchType.LAZY)
@@ -28,6 +29,15 @@ public class ParticipantsEntity {
     }
     public void setAddress(AddressEntity address) {
         this.address = address;
+    }
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "job_id", nullable = false)
+    public AddressEntity getJob() {
+        return job;
+    }
+    public void setJob(AddressEntity job) {
+        this.job = job;
     }
 
     @Id

@@ -13,10 +13,9 @@ import java.sql.Date;
 public class ParticipantService {
     public ParticipantService() {}
 
-    public void save(String name, String email, AddressEntity address, CardsEntity card) {
+    public void save(String name, String email, AddressEntity address, AddressEntity job, CardsEntity card) {
         Transaction transaction = null;
-        System.out.println(address.getId() + " - " +address.getAddress());
-        System.out.println(card.getId() + " - " +card.getNumber());
+
         try (Session session = HibernateUtils.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
 
@@ -25,16 +24,13 @@ public class ParticipantService {
             participantObj.setEmail(email);
             participantObj.setAddress(address);
             participantObj.setCard(card);
-            System.out.println("Aqui carai");
+            participantObj.setJob(job);
+
             session.save(participantObj);
-            System.out.println("Aqui carai2");
 
             transaction.commit();
-            System.out.println("Aqui carai3");
-
             HibernateUtils.closeSession(session);
         } catch (HibernateException e) {
-            System.out.println(e);
             assert transaction != null;
             transaction.rollback();
             e.printStackTrace();

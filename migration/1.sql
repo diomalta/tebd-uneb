@@ -21,6 +21,8 @@ CREATE TABLE IF NOT EXISTS participants (
     email VARCHAR(120),
     address_id INT,
     card_id INT,
+    job_id INT,
+    FOREIGN KEY(job_id) REFERENCES address(id),
     FOREIGN KEY(address_id) REFERENCES cards(id),
     FOREIGN KEY(card_id) REFERENCES address(id)
 );

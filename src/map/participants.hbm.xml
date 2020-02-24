@@ -20,6 +20,7 @@
             <column name="email" />
         </property>
         <many-to-one name="address" column="address_id" class="model.AddressEntity" not-null="true"/>
+        <many-to-one name="job" column="job_id" class="model.AddressEntity" not-null="true"/>
         <many-to-one name="card" column="card_id" class="model.CardsEntity" not-null="true"/>
     </class>
 </hibernate-mapping>
