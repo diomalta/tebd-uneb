@@ -2,13 +2,15 @@ package main;
 
 import model.AddressEntity;
 import service.AddressService;
+import service.CardService;
 
 public class AppMain {
     public static void main(String[] args) {
         System.out.println("Starting app...");
 
         AddressService addressService = new AddressService();
-
+        CardService cardService = new CardService();
+        cardService.save("","");
         // Save
         addressService.save("Rua Everaldina", "987654321");
         addressService.save("Rua Armando leite", "14656589");

@@ -23,6 +23,9 @@
     <mapping class="model.AddressEntity"/>
     <mapping resource="map/address.hbm.xml"/>
 
+    <mapping class="model.CardsEntity"/>
+    <mapping resource="map/cards.hbm.xml"/>
+
     <!--
         <mapping class="model.ArticlesEntity"/>
         <mapping class="model.AuthorsEntity"/>

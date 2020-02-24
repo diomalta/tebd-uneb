@@ -2,14 +2,15 @@ package model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "cards", schema = "congresso", catalog = "")
+@Table(name = "cards")
 public class CardsEntity {
     private String flag;
     private String ccv;
-    private Timestamp due;
+    private Date due;
     private String id;
 
     @Basic
@@ -34,11 +35,11 @@ public class CardsEntity {
 
     @Basic
     @Column(name = "due", nullable = true)
-    public Timestamp getDue() {
+    public Date getDue() {
         return due;
     }
 
-    public void setDue(Timestamp due) {
+    public void setDue(Date due) {
         this.due = due;
     }
 
