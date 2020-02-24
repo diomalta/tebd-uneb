@@ -8,15 +8,15 @@ CREATE TABLE IF NOT EXISTS address (
 
 CREATE TABLE IF NOT EXISTS cards (
      id int(10) PRIMARY KEY NOT NULL,
-     number VARCHAR(16) NOT NULL,
-     flag VARCHAR(10) NOT NULL,
+     number VARCHAR(25) NOT NULL,
+     flag VARCHAR(120) NOT NULL,
      ccv VARCHAR(4) NOT NULL,
      due DATETIME  NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS participants (
     id int(10) PRIMARY KEY NOT NULL,
-    telephone VARCHAR(10),
+    telephone VARCHAR(20),
     name VARCHAR(120),
     email VARCHAR(120),
     address_id INT,

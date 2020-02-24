@@ -8,8 +8,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utils.HibernateUtils;
 
-import java.sql.Date;
-
 public class ParticipantService {
     public ParticipantService() {}
 
