@@ -17,14 +17,12 @@ CREATE TABLE IF NOT EXISTS cards (
 CREATE TABLE IF NOT EXISTS participants (
     id int(10) PRIMARY KEY NOT NULL,
     telephone VARCHAR(10),
-    name VARCHAR(10),
-    email VARCHAR(10),
-    address INT,
-    job INT,
-    card INT,
-    FOREIGN KEY(card) REFERENCES cards(id),
-    FOREIGN KEY(address) REFERENCES address(id),
-    FOREIGN KEY(job) REFERENCES address(id)
+    name VARCHAR(120),
+    email VARCHAR(120),
+    address_id INT,
+    card_id INT,
+    FOREIGN KEY(address_id) REFERENCES cards(id),
+    FOREIGN KEY(card_id) REFERENCES address(id)
 );
 
 CREATE TABLE IF NOT EXISTS articles (
@@ -36,25 +34,24 @@ CREATE TABLE IF NOT EXISTS articles (
 
 CREATE TABLE IF NOT EXISTS authors (
     id int(10) PRIMARY KEY NOT NULL,
-    participant INT,
-    article INT,
-    FOREIGN KEY(participant) REFERENCES participants(id),
-    FOREIGN KEY(article) REFERENCES articles(id)
+    participant_id INT,
+    article_id INT,
+    FOREIGN KEY(participant_id) REFERENCES participants(id),
+    FOREIGN KEY(article_id) REFERENCES articles(id)
 );
 
 CREATE TABLE IF NOT EXISTS evaluations (
     id int(10) PRIMARY KEY NOT NULL,
     note VARCHAR(10),
     position VARCHAR(10),
-    revisor INT,
-    article INT,
-    FOREIGN KEY(article) REFERENCES articles(id)
+    article_id INT,
+    FOREIGN KEY(article_id) REFERENCES articles(id)
 );
 
 CREATE TABLE IF NOT EXISTS revisors (
     id int(10) PRIMARY KEY NOT NULL,
-    participant INT,
-    evaluation INT,
-    FOREIGN KEY(participant) REFERENCES participants(id),
-    FOREIGN KEY(evaluation) REFERENCES evaluations(id)
+    participant_id INT,
+    evaluation_id INT,
+    FOREIGN KEY(participant_id) REFERENCES participants(id),
+    FOREIGN KEY(evaluation_id) REFERENCES evaluations(id)
 );

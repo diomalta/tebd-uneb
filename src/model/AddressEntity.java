@@ -33,6 +33,10 @@ public class AddressEntity {
         this.address = address;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "address_id", insertable = false, updatable = false)
+    private AddressEntity address_id;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

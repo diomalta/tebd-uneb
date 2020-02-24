@@ -57,6 +57,10 @@ public class CardsEntity {
         this.due = due;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "card_id", insertable = false, updatable = false)
+    private CardsEntity card;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -11,8 +11,9 @@ import java.util.List;
 public class AddressService {
     public AddressService() {}
 
-    public void save(String address, String cep) {
+    public AddressEntity save(String address, String cep) {
         Transaction transaction = null;
+        Integer cardID = null;
 
         try (Session session = HibernateUtils.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
@@ -26,12 +27,13 @@ public class AddressService {
             transaction.commit();
             HibernateUtils.closeSession(session);
 
-            System.out.println("Records inserted successfully");
+            return addressObj;
         } catch (HibernateException e) {
             assert transaction != null;
             transaction.rollback();
             e.printStackTrace();
         }
+        return null;
     }
 
     public List getAll() {
@@ -44,7 +46,6 @@ public class AddressService {
             transaction.commit();
             HibernateUtils.closeSession(session);
 
-            System.out.println("Get all address with successfully");
             return addressDb;
         } catch (HibernateException e) {
             assert transaction != null;

@@ -29,11 +29,13 @@
     <mapping class="model.CardsEntity"/>
     <mapping resource="map/cards.hbm.xml"/>
 
+    <mapping class="model.ParticipantsEntity"/>
+    <mapping resource="map/participants.hbm.xml"/>
+
     <!--
         <mapping class="model.ArticlesEntity"/>
         <mapping class="model.AuthorsEntity"/>
         <mapping class="model.EvaluationsEntity"/>
-        <mapping class="model.ParticipantsEntity"/>
         <mapping class="model.RevisorsEntity"/>
     -->
   </session-factory>
