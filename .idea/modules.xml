@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/tebd-uneb.iml" filepath="$PROJECT_DIR$/tebd-uneb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/tebd-uneb.iml" filepath="$PROJECT_DIR$/.idea/tebd-uneb.iml" />
     </modules>
   </component>
 </project>
