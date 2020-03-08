@@ -22,3 +22,8 @@
 
 ## CONTRIBUTORS
 - <a href="https://github.com/DioHX" rel="nofollow" target="_blank">Diego Santos</a>
+
+https://github.com/Cognigy/mongotosql/blob/master/package.json
+https://github.com/Cognigy/mongotosql/blob/master/package.json
+https://github.com/jewelsjacobs/etl-sample/blob/master/dbConnections.js
+https://gist.github.com/kaizerroll/22d887a6ee2bdf5aec2df3e4b499497e

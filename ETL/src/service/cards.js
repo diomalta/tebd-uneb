@@ -1,4 +1,4 @@
-const { cards } = require('../model');
+const { cards } = require('../model/mariaDB');
 
 class CardsService {
   constructor () {
@@ -9,7 +9,7 @@ class CardsService {
     const cards = await this.cards.findAll()
 
     if (!cards) {
-      return "WTF!"
+      return [];
     }
 
     return cards;

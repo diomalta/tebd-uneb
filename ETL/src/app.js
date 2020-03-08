@@ -1,21 +1,28 @@
 const express = require('express');
-const CardsService = require('./service/cards');
+const cors = require('cors')
+
+// const ParticipantsService = require('./service/participants');
 
 class AppController {
   constructor () {
-    this.express = express()
+    this.express = express();
 
-    this.middlewares()
-    this.actions()
+    this.middlewares();
+    this.actions();
   }
 
   middlewares () {
-    this.express.use(express.json())
+    this.express.use(cors());
+    this.express.use(express.json());
+  }
+
+  routes () {
+    this.express.use('/api', require('./router'))
   }
 
   async actions () {
-    console.warn(await CardsService.getAll());
+    // await ParticipantsService.transfersToMongoDB();
   }
 }
 
-module.exports = new AppController().express
+module.exports = new AppController().express;

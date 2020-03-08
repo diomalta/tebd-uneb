@@ -4,12 +4,12 @@ const sqlClient = require('mysql');
 // local MongoDB connection
 const mongoConnectionInstance;
 
-// remote MongoDB connection
+// remote sqlite connection
 const sqlConnectionInstance;
 
 exports.mongoDB = {
     // default mongodb connection
-    url : 'mongodb://localhost:2017',
+    url: 'mongodb+srv://diohmalta@gmail.com:d988004199s@cluster0-ddulw.mongodb.net/test?retryWrites=true&w=majority',
     connection : function (callback) {
       if (mongoConnectionInstance) {
           callback(mongoConnectionInstance);
