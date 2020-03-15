@@ -20,32 +20,34 @@ class ParticipantsService {
       return [];
     }
     
-    return participants.map(participant => ({
-      name: participant.name,
-      telephone: participant.telephone,
-      address: participant.address ? {
-        address: participant.address.address,
-        cep: participant.address.cep
-      } : {},
-      jobs: participant.jobs ? {
-        address: participant.jobs.address,
-        cep: participant.jobs.cep
-      } : {},
-      cards: participant.cards && participant.cards instanceof Array ? 
-        participant.cards.dataValues.map(card => ({
-          number: card.number,
-          flag: card.flag,
-          ccv: card.ccv,
-          due: card.due,
-        })): participant.cards ? [
-          {
-            number: participant.cards.dataValues.number,
-            flag: participant.cards.dataValues.flag,
-            ccv: participant.cards.dataValues.ccv,
-            due: participant.cards.dataValues.due,
-          }
-        ] : [],
-    }));
+    return {
+      result: participants.map(participant => ({
+        name: participant.name,
+        telephone: participant.telephone,
+        address: participant.address ? {
+          address: participant.address.address,
+          cep: participant.address.cep
+        } : {},
+        jobs: participant.jobs ? {
+          address: participant.jobs.address,
+          cep: participant.jobs.cep
+        } : {},
+        cards: participant.cards && participant.cards instanceof Array ? 
+          participant.cards.dataValues.map(card => ({
+            number: card.number,
+            flag: card.flag,
+            ccv: card.ccv,
+            due: card.due,
+          })): participant.cards ? [
+            {
+              number: participant.cards.dataValues.number,
+              flag: participant.cards.dataValues.flag,
+              ccv: participant.cards.dataValues.ccv,
+              due: participant.cards.dataValues.due,
+            }
+          ] : [],
+      }))
+    };
   }
 
   async upsertMongoDB(participants) {
