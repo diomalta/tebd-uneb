@@ -23,8 +23,8 @@ CREATE TABLE IF NOT EXISTS participants (
     card_id INT,
     job_id INT,
     FOREIGN KEY(job_id) REFERENCES address(id),
-    FOREIGN KEY(address_id) REFERENCES cards(id),
-    FOREIGN KEY(card_id) REFERENCES address(id)
+    FOREIGN KEY(address_id) REFERENCES address(id),
+    FOREIGN KEY(card_id) REFERENCES cards(id)
 );
 
 CREATE TABLE IF NOT EXISTS articles (

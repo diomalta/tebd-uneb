@@ -11,7 +11,8 @@ import utils.HibernateUtils;
 public class ParticipantService {
     public ParticipantService() {}
 
-    public void save(String name, String email, AddressEntity address, AddressEntity job, CardsEntity card) {
+    public void save(String name, String email, AddressEntity address, CardsEntity card, AddressEntity job) {
+
         Transaction transaction = null;
 
         try (Session session = HibernateUtils.getSessionFactory().openSession()) {
