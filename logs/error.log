@@ -1,0 +1,2 @@
+{"message":"Algo deu errado: SequelizeConnectionRefusedError: connect ECONNREFUSED 127.0.0.1:3306","level":"error","service":"user-service"}
+{"message":"Algo deu errado: SequelizeHostNotFoundError: getaddrinfo ENOTFOUND mariadb mariadb:3306","level":"error","service":"user-service"}

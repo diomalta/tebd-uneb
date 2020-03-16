@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <!-- Database connection settings -->
+    <property name="connection.url">jdbc:mysql://localhost:3306/congresso</property>
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password"/>
+
+    <!-- SQL dialect -->
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+    <!-- Specify session context -->
+    <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
+
+    <!-- Echo all executed SQL to stdout -->
+    <property name="show_sql">true</property>
+
+    <!-- DB schema will be updated if needed -->
+    <property name="hibernate.hbm2ddl.auto">update</property>
+
+    <!-- Mapping Models - DAO -->
+    <mapping class="model.AddressEntity"/>
+    <mapping resource="map/address.hbm.xml"/>
+
+    <mapping class="model.CardsEntity"/>
+    <mapping resource="map/cards.hbm.xml"/>
+
+    <mapping class="model.ParticipantsEntity"/>
+    <mapping resource="map/participants.hbm.xml"/>
+
+    <!--
+        <mapping class="model.ArticlesEntity"/>
+        <mapping class="model.AuthorsEntity"/>
+        <mapping class="model.EvaluationsEntity"/>
+        <mapping class="model.RevisorsEntity"/>
+    -->
+  </session-factory>
+</hibernate-configuration>

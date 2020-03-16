@@ -18,7 +18,10 @@ public class AppMain {
         AddressService addressService = new AddressService();
         AddressEntity recordAddress = addressService.save("Testando relation2", "26589894");
 
+        AddressService jobs = new AddressService();
+        AddressEntity recordJobs = jobs.save("Testando relation2", "26589894");
+
         ParticipantService participantService = new ParticipantService();
-        participantService.save("Diego", "diomalta@gmail.com", recordAddress, recordCard);
+        participantService.save("Diego", "diomalta@gmail.com", recordAddress, recordJobs, recordCard);
     }
 }
