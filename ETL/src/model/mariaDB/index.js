@@ -5,12 +5,20 @@ const basename = path.basename(__filename)
 const config = require('../../../config/mariaDB')
 const db = {}
 
-const sequelize = new Sequelize(
-  config.database,
-  config.username,
-  config.password,
-  config
-)
+let sequelize = null;
+try {
+  console.warn(config);
+  
+  sequelize = new Sequelize(
+    config.database,
+    config.username,
+    config.password,
+    config
+  )
+} catch (e) {
+  console.error(e);
+}
+
 
 fs.readdirSync(__dirname)
   .filter(file => {

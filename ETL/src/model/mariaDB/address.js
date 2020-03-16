@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
   const Address = sequelize.define('address', {
-    address: DataTypes.TEXT,
+    address: DataTypes.STRING,
     cep: DataTypes.STRING
   },{
     freezeTableName: true,

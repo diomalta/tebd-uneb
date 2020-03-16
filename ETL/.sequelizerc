@@ -2,5 +2,6 @@ const path = require('path');
 
 module.exports = {
   config: path.resolve('config', 'mariaDB.js'),
-  'models-path': path.resolve('src', 'models')
+  'models-path': path.resolve('src', 'models'),
+  'migrations-path': path.resolve('src', 'migrations')
 }

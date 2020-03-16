@@ -1,7 +1,5 @@
 const express = require('express');
-const cors = require('cors')
-
-// const ParticipantsService = require('./service/participants');
+const cors = require('cors');
 
 class AppController {
   constructor () {
@@ -9,7 +7,6 @@ class AppController {
 
     this.middlewares();
     this.routes();
-    this.actions();
   }
 
   middlewares () {
@@ -19,10 +16,6 @@ class AppController {
 
   routes () {
     this.express.use('/api', require('./router'))
-  }
-
-  async actions () {
-    // await ParticipantsService.transfersToMongoDB();
   }
 }
 

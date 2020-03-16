@@ -1,16 +1,16 @@
 module.exports = {
-  host: '127.0.0.1',
+  host: 'localhost', //mariadb
   username: 'root',
-  password: '',
+  password: '123456',
   database: 'congresso',
   dialect: 'mariadb',
   port: 3306,
   storage: '',
   logging: false,
   define: {
-    timestamps: true,
-    underscored: true,
-    underscoredAll: true,
-    paranoid: true
+    timestamps: false,
+    underscored: false,
+    underscoredAll: false,
+    paranoid: false
   }
 }

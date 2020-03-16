@@ -1,0 +1,94 @@
+version: "3"
+
+services:
+  shard-01:
+    container_name: shard-01
+    image: mongo
+    command: mongod --shardsvr --replSet mongodio --dbpath /data/db --port 27017
+    ports:
+      - 27017:27017
+    expose:
+      - "27017"
+    volumes:
+      - /mongo_cluster/data1:/data/db
+
+  shard-02:
+    container_name: shard-02
+    image: mongo
+    command: mongod --shardsvr --replSet mongodio --dbpath /data/db --port 27017
+    ports:
+      - 27027:27017
+    expose:
+      - "27017"
+    volumes:
+      - /mongo_cluster/data2:/data/db
+  
+  config-01:
+    container_name: config-01
+    image: mongo
+    command: mongod --configsvr --replSet mongodioConf --dbpath /data/db --port 27017
+    expose:
+      - "27017"
+    volumes:
+      - /mongo_cluster/config1:/data/db
+
+  config-02:
+    container_name: config-02
+    image: mongo
+    command: mongod --configsvr --replSet mongodioConf --dbpath /data/db --port 27017
+    expose:
+      - "27017"
+    volumes:
+      - /mongo_cluster/config2:/data/db
+
+  router-01:
+    container_name: router-01
+    image: mongo
+    depends_on:
+      - config-01
+      - config-02
+    command: mongos --configdb mongodioConf/config-01:27017,config-02:27017 --port 27017
+    ports:
+      - 27019:27017
+    expose:
+      - "27017"
+  
+  router-02:
+    container_name: router-02
+    image: mongo
+    depends_on:
+      - config-01
+      - config-02
+    command: mongos --configdb mongodioConf/config-01:27017,config-02:27017 --port 27017
+    ports:
+      - 27021:27017
+    expose:
+      - "27017"
+
+  mariadb:
+    image: mariadb
+    restart: always
+    ports:
+      - 3306:3306
+    expose:
+      - "3306"
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: "congresso"
+
+  # etl:
+  #   build: .
+  #   command: sh -c "
+  #     npx sequelize db:migrate &&
+  #     npm run dev"
+  #   ports: 
+  #     - "3333:4200"
+  #   environment: 
+  #     - PORT_SERVER=4200
+  #     - DB_HOST=mongo
+  #   volumes:  
+  #     - ./usr:/src/app  
+  #   links:  
+  #     - mariadb

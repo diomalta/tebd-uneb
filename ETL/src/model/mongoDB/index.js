@@ -13,8 +13,9 @@ mongoose.connection.on('open', () => {
   console.log(`[MongoDB] - Conectado ao banco de congresso`);
 });
 
+const mongoaddr = `mongodb://${process.env.DB_HOST || 'localhost' }:27017/mongodb`;
 mongoose.connect(
-  'mongodb://admin:123admin@ds359868.mlab.com:59868/congresso',
+  mongoaddr || 'mongodb://admin:123admin@ds359868.mlab.com:59868/congresso',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true
