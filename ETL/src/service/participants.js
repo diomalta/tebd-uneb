@@ -1,5 +1,6 @@
 const { participants: participantsMariaDB, cards, address } = require('../model/mariaDB');
 const { Participants: participantsMongoDB } = require('../model/mongoDB');
+const logger = require('./logs');
 
 class ParticipantsService {
   constructor () {
@@ -69,8 +70,13 @@ class ParticipantsService {
   }
 
   async transfersToMongoDB() {
-    const participants = await this.genericJsonSchema();
-    await this.upsertMongoDB(participants);
+    try {
+      const {result} = await this.genericJsonSchema();
+      await this.upsertMongoDB(result);
+      logger.info(`Gerado total de ${result.length} schema de participantes para sincronização`);
+    } catch (e) {
+      logger.error(`Algo deu errado: ${e}`);
+    }
   }
 }
 

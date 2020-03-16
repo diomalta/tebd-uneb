@@ -7,8 +7,6 @@ const db = {}
 
 let sequelize = null;
 try {
-  console.warn(config);
-  
   sequelize = new Sequelize(
     config.database,
     config.username,
