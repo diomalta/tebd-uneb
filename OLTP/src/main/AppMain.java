@@ -33,17 +33,17 @@ public class AppMain {
 
             System.out.println("\nDados do usuário:\n");
             System.out.println("Qual seu nome?");
-            name = sc.next();
+            name = sc.nextLine();
             System.out.println("Qual seu email?");
-            email = sc.next();
+            email = sc.nextLine();
 
             System.out.println("\nDados do cartão:\n");
             System.out.println("Qual a bandeira do seu cartão?");
-            flag = sc.next();
+            flag = sc.nextLine();
             System.out.println("Qual o ccv?");
-            ccv = sc.next();
+            ccv = sc.nextLine();
             System.out.println("Qual o numero?");
-            number = sc.next();
+            number = sc.nextLine();
             System.out.println("\nQual a data de vencimento?\n");
 
             for(int i = 0; i<3; i++){
@@ -53,22 +53,22 @@ public class AppMain {
 
             System.out.println("\nDados de endereço de trabalho:\n");
             System.out.println("CEP:");
-            jobCep = sc.next();
+            jobCep = sc.nextLine();
             System.out.println("endereço:");
-            jobAddress = sc.next();
+            jobAddress = sc.nextLine();
 
             System.out.println("\nDados de endereço:\n");
             System.out.println("CEP:");
-            cep = sc.next();
+            cep = sc.nextLine();
             System.out.println("endereço:");
-            address = sc.next();
+            address = sc.nextLine();
 
              System.out.println("Caso algum dado tenha sido escrito errado digite 1 para recadastrar!");
             int control = sc.nextInt();
             exiter = control == 1?  true: false;
             if(exiter == true){
                 continue;
-            }else{
+            }else {
 
                 Transaction transaction = null;
                 CardsEntity recordCard = new CardsEntity();
@@ -79,27 +79,27 @@ public class AppMain {
                     transaction = session.beginTransaction();
 
                     CardService cardService = new CardService();
-                    recordCard = cardService.save(number,ccv,  flag, new Date(due[0], due[1], due[2]));
+                    recordCard = cardService.save(number, ccv, flag, new Date(due[2], due[1], due[0]));
                     session.save(recordCard);
 
                     AddressService addressService = new AddressService();
-                    recordAddress =  addressService.save(address, cep);
-                    session.save( recordAddress);
+                    recordAddress = addressService.save(address, cep);
+                    session.save(recordAddress);
 
                     jobAddressObj = addressService.save(jobAddress, jobCep);
                     session.save(jobAddressObj);
 
+                    ParticipantService participantService = new ParticipantService();
+                    participantService.save(name, email, recordAddress, recordCard, jobAddressObj);
+
                     transaction.commit();
                     HibernateUtils.closeSession(session);
-                }catch(HibernateException e){
-                    assert  transaction != null;
+                } catch (HibernateException e) {
+                    assert transaction != null;
                     transaction.rollback();
                     e.printStackTrace();
                 }
 
-                ParticipantService participantService = new ParticipantService();
-                System.out.println(recordAddress.getId() +" "+ recordCard.getId() + " "+ jobAddressObj.getId());
-                participantService.save(name, email, recordAddress, recordCard, jobAddressObj);
             }
          }
     }
