@@ -12,28 +12,30 @@ public class AddressService {
     public AddressService() {}
 
     public AddressEntity save(String address, String cep) {
-        Transaction transaction = null;
+        /*Transaction transaction = null;
         Integer cardID = null;
 
         try (Session session = HibernateUtils.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
-
+    */
             AddressEntity addressObj = new AddressEntity();
             addressObj.setAddress(address);
             addressObj.setCep(cep);
 
-            session.save(addressObj);
+        //    session.save(addressObj);
 
-            transaction.commit();
-            HibernateUtils.closeSession(session);
+          //  transaction.commit();
+           // HibernateUtils.closeSession(session);
 
             return addressObj;
-        } catch (HibernateException e) {
+        /*} catch (HibernateException e) {
             assert transaction != null;
             transaction.rollback();
             e.printStackTrace();
         }
         return null;
+
+         */
     }
 
     public List getAll() {

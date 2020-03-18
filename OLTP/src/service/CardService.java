@@ -12,10 +12,10 @@ public class CardService {
     public CardService() {}
 
     public CardsEntity save(String number, String ccv, String flag, Date date) {
-        Transaction transaction = null;
+        //Transaction transaction = null;
 
-        try (Session session = HibernateUtils.getSessionFactory().openSession()) {
-            transaction = session.beginTransaction();
+        //try (Session session = HibernateUtils.getSessionFactory().openSession()) {
+          //  transaction = session.beginTransaction();
 
             CardsEntity cardObj = new CardsEntity();
             cardObj.setNumber(number);
@@ -23,18 +23,18 @@ public class CardService {
             cardObj.setCcv(ccv);
             cardObj.setDue(date);
 
-            session.save(cardObj);
+            //session.save(cardObj);
 
-            transaction.commit();
-            HibernateUtils.closeSession(session);
+            //transaction.commit();
+            //HibernateUtils.closeSession(session);
 
             return cardObj;
-        } catch (HibernateException e) {
-            assert transaction != null;
-            transaction.rollback();
-            e.printStackTrace();
-        }
-        return null;
+        //} catch (HibernateException e) {
+        //    assert transaction != null;
+          //  transaction.rollback();
+           // e.printStackTrace();
+        //}
+        //return null;
     }
 
 }
